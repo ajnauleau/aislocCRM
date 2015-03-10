@@ -18,9 +18,9 @@ include('scraper.class.php');
 
 $new = new scraper;
 // Start Path can be empty, which will be extracted from the start URL
-$new->setStartPath();
+$new->setStartPath('http://sober.ly/foo/');
 //$new->setStartPath('http://forums.digitalpoint.com');
-$new->startURL('http://eniac.vc');
+$new->startURL('http://sober.ly/foo/user.json');
 $new->startScraping();
 ?>
 </body>
