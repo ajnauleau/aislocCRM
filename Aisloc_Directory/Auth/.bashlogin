@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 function addUserPass () {
-   htpasswd -b /usr/bin/passwords/Aisloc_Directory/passwords $1 $2
+   htpasswd -b /usr/bin/passwords/passwords $1 $2
 }
 function addUser () {
 if grep -q "$1" /etc/nagios/passwd
@@ -10,8 +10,8 @@ fi
 
 typeset TMP_FILE=$( mktemp )
 touch "${TMP_FILE}"
-if cp -p /usr/bin/passwords/Aisloc_Directory/users "${TMP_FILE}"  
-then sed -e '/^employees:/ s/$/ '"$1"'/' "${TMP_FILE}" > /usr/bin/passwords/Aisloc_Directory/users
+if cp -p /usr/bin/passwords/users "${TMP_FILE}"  
+then sed -e '/^employees:/ s/$/ '"$1"'/' "${TMP_FILE}" > /usr/bin/passwords/users
 fi
 exit
 }
